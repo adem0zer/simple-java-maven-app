@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
 
-    private final String message = "Hello World! Test";
+    private final String message = "Hello World! Kubernetes Uveys";
 
     public App() {}
 
