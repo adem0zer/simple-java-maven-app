@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Docker-Build') {
             steps {
-                sh " docker image build -t app.jar:latest . "
+                sh " docker build -t app.jar:latest . "
                 sh " docker run app-jar:latest "
             }
         }
