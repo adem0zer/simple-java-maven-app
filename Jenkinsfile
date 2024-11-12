@@ -8,7 +8,7 @@ pipeline {
         stage('Git-Pull') {
             steps {
                 git branch: "master",
-                ur: "https://github.com/adem0zer/simple-java-maven-app.git"
+                url: "https://github.com/adem0zer/simple-java-maven-app.git"
             }
         }
         stage('Build') {
