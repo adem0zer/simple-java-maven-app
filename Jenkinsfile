@@ -16,5 +16,11 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        stage('Docker-Build') {
+            steps {
+                sh " docker image build -t app.jar:latest . "
+                sh " docker run app-jar:latest "
+            }
+        }
     }
 }
