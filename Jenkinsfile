@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Invoke-k8s-config') {
             environment {
-              KUBECONFIG = "/home/adem/.kube/config"
+              KUBECONFIG = "/var/jenkins_home/.m2/.kube/config"
             }
             steps {
                 sh " kubectl get nodes "
