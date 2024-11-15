@@ -27,6 +27,7 @@ pipeline {
               KUBECONFIG = "/home/adem/.kube/config"
             }
             steps {
+                sh " kubectl get nodes "
                 sh " kubectl set image deployment/simple-java-deployment simple-java-test=app.jar:latest "
             }
         }
