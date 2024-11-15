@@ -22,5 +22,13 @@ pipeline {
                 sh " docker run docker.io/library/app.jar:latest "
             }
         }
+        stage('Invoke-k8s-config') {
+            environment {
+              KUBECONFIG = "/home/adem/.kube/config"
+            }
+            steps {
+                sh " kubectl set image deployment/simple-java-deployment=app.jar:latest --record "
+            }
+        }
     }
 }

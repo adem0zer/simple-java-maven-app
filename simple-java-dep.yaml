@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-java-deployment
+  labels:
+    app: 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: simple-java
+  template:
+    metadata:
+      labels:
+        app: simple-java
+    spec:
+      containers:
+        - name: simple-java-test
+          image:
+          ports:
+            - containerPort: 8097
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.profiles.active=test"
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "1024Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: regcred
